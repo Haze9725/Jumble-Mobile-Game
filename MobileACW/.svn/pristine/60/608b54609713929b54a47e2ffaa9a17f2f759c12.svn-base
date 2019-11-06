@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Brian Davis - Labs</string>
+    <string name="hello_string">Hello, Android!</string>
+    <string name="coinTossResult1"> Heads! </string>
+    <string name="coinTossResult2"> Tails </string>
+    <string name="coinTossButtonText"> Open Coin Toss </string>
+    <string name="implicitButtonText"> Open URL </string>
+    <string name="listButtonText"> Open List </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="TextView"> Hello blank fragment </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,36 @@
+package davis.brian.mobileacw;
+
+import android.graphics.Bitmap;
+
+import org.json.JSONObject;
+
+public class Item extends JSONObject {
+    //private String mTitle;
+    private JSONObject mNecking;
+    private JSONObject mPiping;
+    private JSONObject mTractorFront;
+
+    private String mImageUrl;
+    private Bitmap mImage;
+
+    public Item(JSONObject pNecking, JSONObject pPiping, JSONObject pTractorFront) {
+        //setTitle(pTitle);
+        setNecking(pNecking);
+        setPiping(pPiping);
+        setTractorFront(pTractorFront);
+    }
+
+    public Bitmap getImage() { return mImage; }
+    public void setImage(Bitmap pImage) { mImage = pImage; }
+    public String getImageUrl() { return mImageUrl; }
+    public void setImageUrl(String pImageUrl) { mImageUrl = pImageUrl; }
+    //public String getTitle() { return mTitle; }
+    //public void setTitle(String pTitle) { mTitle = pTitle;}
+    public JSONObject getNecking() { return mNecking; }
+    public void setNecking(JSONObject pNecking) { mNecking = pNecking;}
+    public JSONObject getPiping() { return mPiping; }
+    public void setPiping(JSONObject pPiping) { mPiping = pPiping;}
+    public JSONObject getTractorFront() { return mTractorFront; }
+    public void setTractorFront(JSONObject pTractorFront) { mTractorFront = pTractorFront;}
+}
+

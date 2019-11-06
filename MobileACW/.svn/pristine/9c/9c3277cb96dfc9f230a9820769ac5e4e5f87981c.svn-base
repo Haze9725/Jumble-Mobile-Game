@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/coinTossButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openCoinToss"
+            android:text="@string/coinTossButtonText"
+            tools:text="@string/coinTossButtonText" />
+
+        <Button
+            android:id="@+id/implicitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openUrl"
+            android:text="@string/implicitButtonText"
+            tools:text="@string/implicitButtonText" />
+
+        <Button
+            android:id="@+id/listButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="openList"
+            android:text="@string/listButtonText"
+            tools:text="@string/listButtonText" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
