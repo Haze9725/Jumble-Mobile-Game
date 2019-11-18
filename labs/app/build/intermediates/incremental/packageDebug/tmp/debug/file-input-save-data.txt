@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Mon Nov 18 13:27:02 GMT 2019
+0.baseType=DIRECTORY
+0.base=D\:\\Uni SVN\\MobileACW\\labs\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1
