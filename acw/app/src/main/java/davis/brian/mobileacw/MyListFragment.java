@@ -3,6 +3,7 @@ package davis.brian.mobileacw;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
@@ -25,11 +26,11 @@ public class MyListFragment extends ListFragment {
         mViewModel = ViewModelProviders.of(getActivity()).get(MyViewModel.class);
 
         //Create the observer which updates the UI
-        final Observer<List<Item>> itemObserver = new Observer<List<Item>>() {
+        final Observer<List<Puzzle>> itemObserver = new Observer<List<Puzzle>>() {
             @Override
-            public void onChanged(@Nullable final List<Item> PuzzleIndex) {
-                ItemAdapter itemAdapter = new ItemAdapter(getActivity(), mViewModel.getItems().getValue());
-                setListAdapter(itemAdapter);
+            public void onChanged(@Nullable final List<Puzzle> PuzzleIndex) {
+                PuzzleAdapter puzzleAdapter = new PuzzleAdapter(getActivity(), mViewModel.getItems().getValue());
+                setListAdapter(puzzleAdapter);
             }
         };
         //Observe the LiveData, passing in this activity as the LifecycleOwner and the observer
@@ -40,9 +41,8 @@ public class MyListFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //setListAdapter(new ArrayAdapter<String>(getActivity(),
-        //        android.R.layout.simple_list_item_activated_1,
-        //        DummyData.DATA_HEADINGS));
+        setListAdapter(new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_activated_1));
 
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
@@ -75,6 +75,7 @@ public class MyListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         mViewModel.selectItem(position);
         showContent(position);
+
     }
 
     void showContent(int index) {
@@ -84,11 +85,11 @@ public class MyListFragment extends ListFragment {
             getListView().setItemChecked(index, true);
 
             //check what fragment is currently shown, replace if needed
-            ListItemFragment content = (ListItemFragment) getFragmentManager()
+            ListPuzzleFragment content = (ListPuzzleFragment) getFragmentManager()
                     .findFragmentById(R.id.content);
             if (content == null || content.getShownIndex() != index) {
                 //make new fragment to show the selection
-                content = ListItemFragment.newInstance(index);
+                content = ListPuzzleFragment.newInstance(index);
 
                 //Execute a transaction, replacing any existing fragment
                 // with this one inside the frame
@@ -104,7 +105,7 @@ public class MyListFragment extends ListFragment {
 
             //explicitly set the activity context and class
             //associated with the intent (context, class)
-            intent.setClass(getActivity(), ItemActivity.class);
+            intent.setClass(getActivity(), PuzzleActivity.class);
 
             //pass the current position
             intent.putExtra("index", index);

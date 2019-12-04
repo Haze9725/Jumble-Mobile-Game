@@ -2,7 +2,7 @@ package davis.brian.labs;
 
 import android.graphics.Bitmap;
 
-public class Item {
+public class Item implements Comparable<Item>{
     private String mTitle;
     private String mLink;
     private String mDate;
@@ -10,11 +10,13 @@ public class Item {
     private String mImageUrl;
     private Bitmap mImage;
 
-    public Item(String pTitle, String pLink, String pDate, String pDescription) {
+    public Item(String pTitle, String pLink, String pDate, String pDescription,
+                String pImageUrl) {
         setTitle(pTitle);
         setLink(pLink);
         setDate(pDate);
         setDescription(pDescription);
+        setImageUrl(pImageUrl);
     }
 
     public Bitmap getImage() { return mImage; }
@@ -29,4 +31,9 @@ public class Item {
     public void setDate(String pDate) { mDate = pDate;}
     public String getDescription() { return mDescription; }
     public void setDescription(String pDescription) { mDescription = pDescription;}
+
+    @Override
+    public int compareTo(Item o) {
+        return this.getTitle().compareTo(o.getTitle());
+    }
 }

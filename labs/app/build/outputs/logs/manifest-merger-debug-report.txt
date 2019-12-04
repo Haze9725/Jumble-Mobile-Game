@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\e9f096a17fbd0b1e7cf3fb806faeaac2\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\287ab99fc8d0bad1b472d0a45c7415cb\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\a9724d9ee7f1fff0cbcb3a19dd8ea4e2\AndroidManifest.xml:17:1-22:12
@@ -40,20 +40,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\brian\.gradle\ca
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\897b6e6ec93c52420d66f96ba9466224\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\b48c1a6536353db2d87870ecb77a52b9\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\3fd84902ed878f7f0cbddaf42ae7303a\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
 	package
 		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:3:5-31
 		INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml
-		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml
-		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-31:12
+		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:1-25:12
 		INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:2:11-69
@@ -62,7 +62,7 @@ ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
 		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:6:5-29:19
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:6:5-23:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\287ab99fc8d0bad1b472d0a45c7415cb\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\287ab99fc8d0bad1b472d0a45c7415cb\AndroidManifest.xml:9:5-20
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] C:\Users\brian\.gradle\caches\transforms-2\files-2.1\50b28c21e0d375d1cf4a1c89c081eede\AndroidManifest.xml:22:5-23:19
@@ -94,27 +94,27 @@ ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:13:9-59
 	android:name
 		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:13:19-47
 activity#davis.brian.labs.ItemActivity
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:14:9-20:20
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:14:9-50
 	android:name
 		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:14:19-47
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:15:13-19:29
-action#android.intent.action.MAIN
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:16:17-69
-	android:name
-		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:16:25-66
-category#android.intent.category.LAUNCHER
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:18:17-77
-	android:name
-		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:18:27-74
 activity#davis.brian.labs.MainActivity
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:21:9-27:20
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:21:19-47
+		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:15:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:17:17-69
+	android:name
+		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:19:27-74
 activity#davis.brian.labs.CoinTossActivity
-ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:28:9-54
+ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:22:9-54
 	android:name
-		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:28:19-51
+		ADDED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml:22:19-51
 uses-sdk
 INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Uni SVN\MobileACW\labs\app\src\main\AndroidManifest.xml

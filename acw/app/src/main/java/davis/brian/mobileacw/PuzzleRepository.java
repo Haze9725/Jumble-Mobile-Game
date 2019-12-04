@@ -2,34 +2,37 @@ package davis.brian.mobileacw;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 public class PuzzleRepository {
+
     private static PuzzleRepository sPuzzleRepository;
 
-    private Context mApplicationContext;
+    public static Context mApplicationContext;
+    private VolleyIndexRetriever mRemoteIndexList;
+    //private VolleyPuzzlesRetriever mRemotePuzzleList;
 
-    private LiveData<ArrayList<Item>> mItems;
-    private LiveData<Item> mSelectedItem;
+    //private LiveData<ArrayList<Puzzle>> mItems;
+    private MediatorLiveData<ArrayList<Puzzle>> mItems;
+    private LiveData<Puzzle> mSelectedItem;
+
+    String indexUrl = "https://www.goparker.com/600096/jumble/index.json";
 
     private PuzzleRepository(Context pApplicationContext) {
-        this.mApplicationContext = pApplicationContext;
+        mApplicationContext = pApplicationContext;
+        mItems = new MediatorLiveData<>();
+        mRemoteIndexList = new VolleyIndexRetriever(
+                indexUrl, pApplicationContext);
     }
 
     public static PuzzleRepository getInstance(Context pApplicationContext) {
@@ -39,73 +42,22 @@ public class PuzzleRepository {
         return sPuzzleRepository;
     }
 
-    public LiveData<ArrayList<Item>> loadItemsFromJSON() {
-        RequestQueue queue = Volley.newRequestQueue(mApplicationContext);
-        String url = "https://www.goparker.com/600096/jumble/index.json";
-        final MutableLiveData<ArrayList<Item>> mutableItems = new MutableLiveData<>();
-
-        // Request a jsonObject response from the provided URL.
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        ArrayList<Item> PuzzleIndex = parseJSONResponse(response);
-                        mutableItems.setValue(PuzzleIndex);
-                        mItems = mutableItems;
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        String errorResponse = "That didn't work!";
-                    }
-                });
-
-        //Add the request to the RequestQueue
-        queue.add(jsonObjectRequest);
-
-        return mutableItems;
-    }
-
-    private ArrayList<Item> parseJSONResponse(JSONObject pResponse) {
-        ArrayList<Item> puzzles = new ArrayList<>();
-        try {
-            JSONArray puzzleArray = pResponse.getJSONArray("PuzzleIndex");
-            for (int i=0; i < puzzleArray.length(); i++) {
-                String puzzleObject = puzzleArray.getString(i);
-                Item puzzle = parseJSONItem(puzzleObject);
-                puzzles.add(puzzle);
-            }
-        }
-        catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return puzzles;
-    }
-    private Item parseJSONItem(String pPuzzleObject) throws org.json.JSONException {
-
-        //String necking = pPuzzleObject("necking.json");
-        //String piping = pPuzzleObject.getString("piping.json");
-        //String tractorFront = pPuzzleObject.getString("tractorFront.json");
-
-        Item puzzle = new Item(pPuzzleObject, pPuzzleObject, pPuzzleObject);
-        return puzzle;
-    }
-
-    public LiveData<ArrayList<Item>> getItems() {
-        if(mItems==null) {
-            mItems = loadItemsFromJSON();
-        }
+    public LiveData<ArrayList<Puzzle>> getItems() {
+        LiveData<ArrayList<Puzzle>> remoteData = mRemoteIndexList.getItems();
+        //LiveData<ArrayList<Puzzle>> localData = loadIndexLocally("");
+        mItems.addSource(remoteData, value -> mItems.setValue(value));
+        //mItems.addSource(localData, value -> mItems.setValue(value));
         return mItems;
     }
 
-    public LiveData<Item> getItem(int pItemIndex) {
-
-        LiveData<Item> transformedItem = Transformations.switchMap(mItems, PuzzleIndex -> {
-            MutableLiveData<Item> itemData = new MutableLiveData<>();
-            Item puzzle = PuzzleIndex.get(pItemIndex);
+    public LiveData<Puzzle> getItem(int pItemIndex) {
+        LiveData<Puzzle> transformedItem = Transformations.switchMap(mItems, PuzzleIndex -> {
+            MutableLiveData<Puzzle> itemData = new MutableLiveData<>();
+            Puzzle puzzle = PuzzleIndex.get(pItemIndex);
             itemData.setValue(puzzle);
+//            if (!loadImageLocally("puzzle_images", itemData)) {
+//                loadImage("puzzle_images", itemData);
+//            }
             return itemData;
         });
 
@@ -113,9 +65,25 @@ public class PuzzleRepository {
         return mSelectedItem;
     }
 
-
-    public void saveIndexLocally(JSONObject pIndexObject, String pFilename) {
+    public boolean loadImageLocally(String pFilename, MutableLiveData<Puzzle> pPuzzleData) {
+        boolean loaded = false;
         ContextWrapper contextWrapper = new ContextWrapper(mApplicationContext);
-        OutputStreamWriter
+        File directory = contextWrapper.getDir("puzzleImages", Context.MODE_PRIVATE);
+        File file = new File(directory, pFilename);
+        if (file.exists()) {
+            FileInputStream fileInputStream = null;
+            try {
+                fileInputStream = new FileInputStream(file);
+                Bitmap bitmap = BitmapFactory.decodeStream(fileInputStream);
+                Puzzle puzzle = pPuzzleData.getValue();
+                puzzle.setImage(bitmap);
+                pPuzzleData.setValue(puzzle);
+
+                fileInputStream.close();
+                loaded = true;
+            } catch (java.io.IOException e) {
+                e.printStackTrace();
+            }
+        } return loaded;
     }
 }

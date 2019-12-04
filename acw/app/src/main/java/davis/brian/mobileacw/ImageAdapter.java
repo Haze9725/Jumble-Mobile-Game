@@ -13,14 +13,19 @@ import android.widget.LinearLayout;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ImageAdapter extends BaseAdapter {
-    private Context context;
-    private String[] list;
+import static davis.brian.mobileacw.PuzzleRepository.mApplicationContext;
 
-    public ImageAdapter(Context c) {
-        context = c;
+
+public class ImageAdapter extends BaseAdapter {
+
+    private String[] puzzleGame;
+
+    public ImageAdapter(Context pContext) {
+        mApplicationContext = pContext;
+
         try {
-            list = context.getAssets().list("giraffe 1");
+
+            puzzleGame = pContext.getAssets().list("giraffe 1");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,7 +33,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return list.length;
+        return puzzleGame.length;
     }
 
     public Object getItem(int position) {
@@ -44,8 +49,10 @@ public class ImageAdapter extends BaseAdapter {
 
         if (convertView == null) {
 
-            img = new ImageView(context);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,   ViewGroup.LayoutParams.WRAP_CONTENT);
+            img = new ImageView(mApplicationContext);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
             img.setLayoutParams(new GridView.LayoutParams(params));
             img.setScaleType(ImageView.ScaleType.CENTER);
             img.setPadding(8, 8, 8, 8);
@@ -56,7 +63,7 @@ public class ImageAdapter extends BaseAdapter {
         }
         try {
 
-            InputStream ims = context.getAssets().open("giraffe 1/" + list[position]);
+            InputStream ims = mApplicationContext.getAssets().open("giraffe 1/" + puzzleGame[position]);
 
             //Drawable d = Drawable.createFromStream(ims, null);
             Bitmap bitmap = BitmapFactory.decodeStream(ims);
@@ -66,4 +73,5 @@ public class ImageAdapter extends BaseAdapter {
             e.printStackTrace();
         }
         return img;
-    }}
+    }
+}

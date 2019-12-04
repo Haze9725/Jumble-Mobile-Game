@@ -8,9 +8,11 @@ import androidx.lifecycle.LiveData;
 
 import java.util.ArrayList;
 
+import static davis.brian.mobileacw.VolleyIndexRetriever.mIndexData;
+
 public class MyViewModel extends AndroidViewModel {
-    private LiveData<ArrayList<Item>> mItems;
-    private LiveData<Item> mSelectedItem;
+    private LiveData<ArrayList<Puzzle>> mItems;
+    private LiveData<Puzzle> mSelectedItem;
     private PuzzleRepository mPuzzleRepository;
     private int mSelectedIndex;
 
@@ -20,14 +22,17 @@ public class MyViewModel extends AndroidViewModel {
         mPuzzleRepository = PuzzleRepository.getInstance(getApplication());
     }
 
-    public LiveData<ArrayList<Item>> getItems() {
+    public LiveData<ArrayList<Puzzle>> getItems() {
+        if (mIndexData != null) {
+            return mIndexData;
+        }
         if (mItems == null) {
             mItems = mPuzzleRepository.getItems();
         }
         return mItems;
     }
 
-    public LiveData<Item> getItem(int pItemIndex) {
+    public LiveData<Puzzle> getItem(int pItemIndex) {
         return mPuzzleRepository.getItem(pItemIndex);
     }
 
@@ -36,17 +41,9 @@ public class MyViewModel extends AndroidViewModel {
             mSelectedIndex = pIndex;
             mSelectedItem = getItem(mSelectedIndex);
         }
-
-        //Item selectedItem = mItems.getValue().get(mSelectedIndex);
-        //mSelectedItem = new MutableLiveData<Item>();
-        //mSelectedItem.setValue(selectedItem);
     }
 
-    public LiveData<Item> getSelectedItem() {
-        //if (mSelectedItem == null) {
-        //    mSelectedItem = new MutableLiveData<Item>();
-        //    selectItem(mSelectedIndex);
-        //}
+    public LiveData<Puzzle> getSelectedItem() {
         return mSelectedItem;
     }
 }

@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ListActivity"></activity>
-        <activity android:name=".ItemActivity" />
-        <activity android:name=".Play" />
+        <activity android:name=".PuzzleActivity" />
+        <activity android:name=".Play"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

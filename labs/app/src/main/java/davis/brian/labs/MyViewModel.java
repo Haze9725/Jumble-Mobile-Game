@@ -21,15 +21,15 @@ public class MyViewModel extends AndroidViewModel {
         mItemRepository = ItemsRepository.getInstance(getApplication());
     }
 
-    private void generateItems() {
-        ArrayList<Item> items = new ArrayList<Item>();
-        items.add(new Item("First", "Link!", "01/11/19", "first blah"));
-        items.add(new Item("Second", "Link!", "02/11/19", "blah blah"));
-        items.add(new Item("Third", "Link!", "03/11/19", "extra blah"));
-        items.add(new Item("Fourth", "Link!", "04/11/19", "i hate this blah"));
-        items.add(new Item("Fifth", "Link!", "05/11/19", "does it fry, oh aye"));
-        //mItems.setValue(items);
-    }
+//    private void generateItems() {
+//        ArrayList<Item> items = new ArrayList<Item>();
+//        items.add(new Item("First", "Link!", "01/11/19", "first blah"));
+//        items.add(new Item("Second", "Link!", "02/11/19", "blah blah"));
+//        items.add(new Item("Third", "Link!", "03/11/19", "extra blah"));
+//        items.add(new Item("Fourth", "Link!", "04/11/19", "i hate this blah"));
+//        items.add(new Item("Fifth", "Link!", "05/11/19", "does it fry, oh aye"));
+//        //mItems.setValue(items);
+//    }
 
     public LiveData<ArrayList<Item>> getItems() {
         if (mItems == null) {

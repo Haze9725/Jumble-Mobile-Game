@@ -1,20 +1,14 @@
 package davis.brian.mobileacw;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
-
-    private GridView imageGrid;
-    private ArrayList<Bitmap> bitmaplist;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
