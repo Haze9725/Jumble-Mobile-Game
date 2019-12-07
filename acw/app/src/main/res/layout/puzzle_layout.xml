@@ -15,7 +15,7 @@
         android:id="@+id/imageView_puzzleImage"
         android:layout_width="148dp"
         android:layout_height="233dp"
-        android:layout_gravity="left"
+        android:layout_gravity="start"
         android:layout_margin="20dp"
         android:contentDescription="puzzleImage" />
 

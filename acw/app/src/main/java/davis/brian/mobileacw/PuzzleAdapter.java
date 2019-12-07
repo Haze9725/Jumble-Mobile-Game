@@ -15,31 +15,31 @@ import java.util.List;
 
 public class PuzzleAdapter extends ArrayAdapter<Puzzle> {
     private Context mContext;
-    private List<Puzzle> mItemList;
+    private List<Puzzle> mPuzzleList;
 
     public PuzzleAdapter(@NonNull Context pContext, ArrayList<Puzzle> pList){
         super(pContext, 0, pList);
         mContext = pContext;
-        mItemList = pList;
+        mPuzzleList = pList;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View listItem = convertView;
-        if (listItem == null) {
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.puzzle_layout, parent, false);
+        View listPuzzle = convertView;
+        if (listPuzzle == null) {
+            listPuzzle = LayoutInflater.from(mContext).inflate(R.layout.puzzle_layout, parent, false);
         }
-        Puzzle currentItem = mItemList.get(position);
+        Puzzle currentPuzzle = mPuzzleList.get(position);
 
-        TextView name = (TextView) listItem.findViewById(R.id.textView_title);
-        name.setText(currentItem.getPuzzleName());
+        TextView name = (TextView) listPuzzle.findViewById(R.id.textView_title);
+        name.setText(currentPuzzle.getPuzzleName());
 
-        TextView release = (TextView) listItem.findViewById(R.id.textView_info);
-        release.setText(currentItem.getPuzzleIndex());
+        TextView release = (TextView) listPuzzle.findViewById(R.id.textView_info);
+        release.setText(currentPuzzle.getPuzzleIndex());
 
-        ImageView image = (ImageView) listItem.findViewById(R.id.imageView_puzzleImage);
-        image.setImageBitmap(currentItem.getFrontImage());
+        ImageView image = (ImageView) listPuzzle.findViewById(R.id.imageView_puzzleImage);
+        image.setImageBitmap(currentPuzzle.getFrontImage());
 
-        return listItem;
+        return listPuzzle;
     }
 }

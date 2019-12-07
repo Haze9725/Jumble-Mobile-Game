@@ -54,11 +54,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(openAboutIntent);
     }
     public void openPlay(View view) {
+        // change here to return to previous iteration of Play.class
         Intent openPlayIntent = new Intent(getApplicationContext(), Play.class);
         startActivity(openPlayIntent);
     }
     public void openList(View view) {
         Intent openListActivity = new Intent(getApplicationContext(), ListActivity.class);
         startActivity(openListActivity);
+    }
+    public void openScores(View view) {
+        Intent openHighScores = new Intent(getApplicationContext(), ScoresActivity.class);
+        startActivity(openHighScores);
     }
 }

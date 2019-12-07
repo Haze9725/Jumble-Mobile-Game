@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
@@ -7,31 +8,59 @@
     tools:context=".ListPuzzleFragment">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="64dp">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/listItemTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+            <!--<TextView-->
+            <!--android:id="@+id/listItemTextView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextView" />-->
 
             <ImageView
                 android:id="@+id/imageView_image"
-                android:layout_width="375dp"
-                android:layout_height="223dp"
-                android:layout_margin="20dp" />
+                android:layout_width="190dp"
+                android:layout_height="270dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/imageView_image2"
-                android:layout_width="375dp"
-                android:layout_height="223dp"
-                android:layout_margin="20dp" />
+                android:layout_width="190dp"
+                android:layout_height="270dp"
+                android:layout_margin="20dp"
+                android:layout_weight="1" />
+
         </LinearLayout>
+
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp">
+
+        <Button
+            android:id="@+id/selectGameButton"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/select_game" />
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

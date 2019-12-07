@@ -21,6 +21,20 @@
             android:layout_height="wrap_content"
             android:text="@string/aboutText"
             android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/textView_flip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/how_to_flip"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView_rotate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/how_to_rotate"
+            android:textSize="25sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.GridView;
@@ -17,6 +18,7 @@ public class GestureDetectGridView extends GridView {
     private static final int SWIPE_MIN_DISTANCE = 100;
     private static final int SWIPE_MAX_OFF_PATH = 100;
     private static final int SWIPE_THRESHOLD_VELOCITY = 100;
+    private static final String TAG = "GestureDetector";
 
     public GestureDetectGridView(Context context) {
         super(context);
@@ -74,10 +76,34 @@ public class GestureDetectGridView extends GridView {
                     }
                 }
 
+                Log.i(TAG, "Fling called");
                 return super.onFling(e1, e2, velocityX, velocityY);
             }
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+
+                final int position = GestureDetectGridView.this.pointToPosition
+                        (Math.round(e.getX()), Math.round(e.getY()));
+                Play.onFlip(context, position);
+
+                Log.i(TAG, "Single Tap called");
+                return true;
+            }
+
+            @Override
+            public void onLongPress(MotionEvent e) {
+
+                final int position = GestureDetectGridView.this.pointToPosition
+                        (Math.round(e.getX()), Math.round(e.getY()));
+                Play.onPictureSwap(context, position);
+
+                Log.i(TAG, "Long Press called");
+            }
+
         });
     }
+
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
