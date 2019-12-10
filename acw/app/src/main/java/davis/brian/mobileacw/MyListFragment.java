@@ -75,7 +75,6 @@ public class MyListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         mViewModel.selectItem(position);
         showContent(position);
-
     }
 
     void showContent(int index) {

@@ -1,13 +1,14 @@
 package davis.brian.mobileacw;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,8 @@ public class ListPuzzleFragment extends Fragment {
     private int mIndex;
     MyViewModel mViewModel;
     View mInflatedView;
+    private Button selectGame;
+    private Puzzle mPuzzle;
 
     public int getShownIndex() {
         return mIndex;
@@ -66,23 +69,38 @@ public class ListPuzzleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Log.i(this.getClass().getSimpleName() + " Observer", "onCreateView");
+
         mInflatedView = inflater.inflate(R.layout.fragment_list_puzzle, container, false);
+
+        selectGame = (Button) mInflatedView.findViewById(R.id.selectGameButton);
+        selectGame.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                onPress(v);
+            }
+        });
+
         //Create the observer which updates the UI
         final Observer<Puzzle> itemObserver = new Observer<Puzzle>() {
             @Override
             public void onChanged(@Nullable final Puzzle puzzle) {
+                mPuzzle = puzzle;
                 ImageView image = (ImageView) mInflatedView.findViewById(R.id.imageView_image);
                 image.setImageBitmap(puzzle.getFrontImage());
                 ImageView image2 = (ImageView) mInflatedView.findViewById(R.id.imageView_image2);
                 image2.setImageBitmap(puzzle.getBackImage());
-                TextView text = (TextView) mInflatedView.findViewById(R.id.listItemTextView);
-                text.setText(puzzle.getPuzzleIndex());
             }
         };
 
         //Observe the LiveData, passing in this activity as the LifecycleOwner and the observer
         mViewModel.getSelectedItem().observe(this, itemObserver);
         return mInflatedView;
+    }
+
+    public void onPress(View v) {
+        Intent intent = new Intent(getContext(), Play.class);
+        intent.putExtra("puzzleName", mPuzzle.getPuzzleName());
+        startActivity(intent);
     }
 
 }

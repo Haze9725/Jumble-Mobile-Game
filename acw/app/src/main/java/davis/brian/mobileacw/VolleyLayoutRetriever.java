@@ -1,7 +1,5 @@
 package davis.brian.mobileacw;
 
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.graphics.Bitmap;
 import android.util.Log;
 
@@ -14,11 +12,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 
-import static davis.brian.mobileacw.PuzzleRepository.mApplicationContext;
 import static davis.brian.mobileacw.VolleyIndexRetriever.mIndexData;
 import static davis.brian.mobileacw.VolleyIndexRetriever.mIndexItems;
 import static davis.brian.mobileacw.VolleyIndexRetriever.mQueue;
@@ -85,12 +80,9 @@ public class VolleyLayoutRetriever implements VolleyJSONObjectResponse,
             if (mPuzzle.getIndexValue() == 26) {
                 mPuzzle.setFrontImage(pImage);
                 indexValue = 0;
+                //p = 0;
                 mPuzzle.setIndexValue(indexValue);
             }
-
-            saveImageLocally(pImage, "puzzle_images");
-            Log.i("Response Image Saving", "Image saved");
-
             mIndexData.setValue(mIndexItems);
 
     }
@@ -100,6 +92,7 @@ public class VolleyLayoutRetriever implements VolleyJSONObjectResponse,
         Log.i("VolleyLayoutRetriever", pTag);
         mIndexItems = parseJSONResponse(pObject);
         mIndexData.setValue(mIndexItems);
+
     }
 
     @Override
@@ -184,22 +177,5 @@ public class VolleyLayoutRetriever implements VolleyJSONObjectResponse,
                     this);
             mQueue.add(imageRequest3.getImageRequest());
             Log.i("VolleyLayoutRetriever", "got complete front image");
-    }
-
-    public void saveImageLocally(Bitmap pBitmap, String pFilename) {
-        ContextWrapper contextWrapper = new ContextWrapper(mApplicationContext);
-        File directory = contextWrapper.getDir("puzzleImages", Context.MODE_PRIVATE);
-        File file = new File(directory, pFilename);
-        if (!file.exists()) {
-            FileOutputStream fileOutputStream = null;
-            try {
-                fileOutputStream = new FileOutputStream(file);
-                pBitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (java.io.IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

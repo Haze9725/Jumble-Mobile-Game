@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".ListActivity" />
         <activity android:name=".PuzzleActivity" />
         <activity android:name=".Play"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />

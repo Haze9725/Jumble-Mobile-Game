@@ -17,7 +17,9 @@ public class Puzzle implements Comparable<Puzzle> {
     private Bitmap[] mPuzzleImageSet2 = new Bitmap[12];
     private Bitmap mFrontImage;
     private Bitmap mBackImage;
+    private String mHighScoreText = "Highest Score: ";
     private int mIndexValue = 0;
+    private int mHighScore = 0;
 
     // layout for the index
     public Puzzle(String pPuzzleIndex) {
@@ -39,6 +41,12 @@ public class Puzzle implements Comparable<Puzzle> {
 
     public int getIndexValue() { return mIndexValue; }
     public void setIndexValue(int pIndexValue) { mIndexValue = pIndexValue;}
+
+    public int getHighScore() { return mHighScore; }
+    public void setHighScore(int pHighScore) { mHighScore = pHighScore;}
+    public String getHighScoreText() { return mHighScoreText; }
+    public void setHighScoreText(String pHighScoreText) { mHighScoreText = pHighScoreText;}
+
 
     public int getLayoutRows() { return mLayoutRows; }
     public void setLayoutRows(int pLayoutRows) { mLayoutRows = pLayoutRows;}

@@ -3,15 +3,15 @@ package davis.brian.mobileacw;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
 public class CustomGameAdapter extends BaseAdapter {
-    private ArrayList<Button> mButtons;
+    private ArrayList<ImageButton> mButtons;
     private int mColumnWidth, mColumnHeight;
 
-    public CustomGameAdapter(ArrayList<Button> buttons, int columnWidth, int columnHeight) {
+    public CustomGameAdapter(ArrayList<ImageButton> buttons, int columnWidth, int columnHeight) {
         mButtons = buttons;
         mColumnWidth = columnWidth;
         mColumnHeight = columnHeight;
@@ -34,12 +34,12 @@ public class CustomGameAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Button button;
+        ImageButton button;
 
         if (convertView == null) {
             button = mButtons.get(position);
         } else {
-            button = (Button) convertView;
+            button = (ImageButton) convertView;
         }
 
         android.widget.AbsListView.LayoutParams params

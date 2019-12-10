@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="welcomeView">Bienvenue à Jumble!</string>
+    <string name="playButton" >Joeur</string>
+    <string name="aboutButton" >" Sur"</string>
+    <string name="aboutText" >" Sur"</string>
+    <string name="viewAvailableGames" >Jeux disponibles</string>
+    <string name="pause">Pause</string>
+    <string name="highScore">HighScore</string>
+    <string name="select_game">Joeur</string>
+    <string name="how_to_rotate">" Appuyez longuement pour retourner la vignette d'image sur l'autre image"</string>
+    <string name="how_to_flip">" Appuyez une fois pour retourner la tuile d'image à 180 degrés"</string>
+    <string name="highScoreButton">Scores élevés</string>
+    <string name="complete_text"> Bien joué! Ton score est: </string>
+    <string name="invalid_move"> déplacement invalide </string>
+</resources>
